@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="GithubViewer">
+
+<head>
+  <script data-require="angular.js@1.3.0-beta.5" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+  <h1>{{header}}</h1>
+  
+  <div>
+    <form>
+    <input type="text" name="Search" placeholder="search" ng-model="userName" />
+    <input type="submit" name="Search" ng-click="search(userName)">
+    </form>
+  </div>
+  <div ng-show=user>
+  <div>
+    Name:{{user.name}}
+  </div>
+   <div>
+    Location : {{user.location}}
+  </div>
+  <div>
+    <img ng-src={{user.avatar_url}} title={{user.name}}>
+  </div>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Star
+          </th>
+          <th>
+            Location
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="repo in repos">
+          <td>
+            {{repo.name}}
+          </td>
+          <td>
+            {{repo.stargazers_count}}
+          </td>
+          <td>
+            {{repo.location}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
