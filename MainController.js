@@ -1,14 +1,11 @@
 // Code goes here
 (function() {
-
-  var GithubViewer = angular.module("GithubViewer", []);
-
+  var GithubViewer = angular.module("GithubViewer");
   GithubViewer.controller('mainCtrl', ['$scope', '$http', function($scope, $http) {
-    $scope.userName = "Kullu03";
+    $scope.username = "Kullu03";
     $scope.header = "Github Viewer AngularJS App"
-    $scope.search = function(userName) {
-      console.log("clicked");
-      $http.get("https://api.github.com/users/" + userName).then(onUserComplete, onError);
+    $scope.search = function(username) {
+      $http.get("https://api.github.com/users/" + username).then(onUserComplete, onError);
     };
 
     var onUserComplete = function(response) {

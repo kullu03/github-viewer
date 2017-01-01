@@ -1,0 +1,1 @@
+This is the basic Angular App. Credit goes to pluralsight. 

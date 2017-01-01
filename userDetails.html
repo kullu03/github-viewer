@@ -1,0 +1,50 @@
+<div ng-controller="mainCtrl">
+  <h1>{{header}}</h1>
+  <div>
+    <form>
+    <input type="text" name="Search" placeholder="search" ng-model="userName" />
+    <input type="submit" name="Search" ng-click="search(userName)">
+    </form>
+  </div>
+  <div ng-show=user>
+  <div>
+    Name:{{user.name}}
+  </div>
+   <div>
+    Location : {{user.location}}
+  </div>
+  <div>
+    <img ng-src={{user.avatar_url}} title={{user.name}}>
+  </div>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Star
+          </th>
+          <th>
+            Location
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="repo in repos">
+          <td>
+            {{repo.name}}
+          </td>
+          <td>
+            {{repo.stargazers_count}}
+          </td>
+          <td>
+            {{repo.location}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
